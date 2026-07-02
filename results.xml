@@ -1,6 +1,0 @@
-<testsuites name="results">
-  <testsuite name="all" package="all">
-    <property name="random_seed" value="1783006487" />
-    <testcase name="test_memory" classname="tb.memory" file="/home/sayooj/s-core/tb/memory.py" lineno="6" time="0.0026848316192626953" sim_time_ns="53.0" ratio_time="19740.53032590356" />
-  </testsuite>
-</testsuites>
