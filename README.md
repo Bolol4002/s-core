@@ -7,4 +7,6 @@ my nth attempt in building a cpu
 - some data memory
 - a sign extender
 - a bsic alue
-- decoder/control unit  
+- decoder/control unit 
+
+![architecture](img/architecture.png)
