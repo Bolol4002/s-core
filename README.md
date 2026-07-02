@@ -25,3 +25,15 @@ my nth attempt in building a cpu
 # alu.sv 
 - does arithmetic operation will be adding more and more types as the design evolves but for now very basic variant is given
 - an input called alu_control is implemented its purpose is that when the alu encounters a operand which is not supported the answer is defaulted to zero.
+
+# signext.sv
+- sign extender
+- The signext module converts a RISC-V immediate field into a full 32-bit signed value.
+- Why is this needed?
+- For an instruction like lw:
+    - lw x5, 8(x1)
+- the offset (8) is stored inside the instruction as a 12-bit immediate.
+- The ALU, however, operates on 32-bit values, so we must:
+    - Extract the immediate bits from the instruction.
+    - Reconstruct them if they are scattered.
+    - Extend them to 32 bits while preserving the sign.
