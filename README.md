@@ -9,4 +9,4 @@ my nth attempt in building a cpu
 - a bsic alue
 - decoder/control unit 
 
-![architecture](img/architecture.png)
+![architecture](img/architecture.jpg)
