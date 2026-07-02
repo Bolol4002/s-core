@@ -1,2 +1,16 @@
+# Python virtual environment
 venv/
-tb/_pycache_
+
+# Python bytecode and caches
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Cocotb / simulation artifacts
+sim_build/
+results.xml
+*.vcd
+
+# IDE/tooling files
+.vscode/
