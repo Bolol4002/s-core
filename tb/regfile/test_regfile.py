@@ -1,10 +1,15 @@
+# REGFILE TESTBECH
+#
+# BRH 10/24
+
 import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge, Timer
 import random
+import numpy as np
 
 @cocotb.test()
-async def random_write_read_test(dut):
+async def regfile_test(dut):
     # Start a 10 ns clock
     cocotb.start_soon(Clock(dut.clk, 10, units="ns").start())
     await RisingEdge(dut.clk)
@@ -19,7 +24,7 @@ async def random_write_read_test(dut):
 
     await RisingEdge(dut.clk)   
     dut.rst_n.value = 1  # realease reset_n   
-    await RisingEdge(dut.clk)  
+    await RisingEdge(dut.clk)    
 
     # fill a heorical state of the regs, all 0s for starters
     theorical_regs = [0 for _ in range(32)]
@@ -43,7 +48,7 @@ async def random_write_read_test(dut):
         # perform a random write
         dut.address3.value = address3
         dut.write_enable.value = 1
-        dut.write_data.value = write_value
+        dut.write_data = write_value
         await RisingEdge(dut.clk)
         dut.write_enable.value = 0
         theorical_regs[address3] = write_value
@@ -53,10 +58,10 @@ async def random_write_read_test(dut):
     await Timer(1, units="ns")
     dut.address3.value = 0
     dut.write_enable.value = 1
-    dut.write_data.value = 0xAEAEAEAE
+    dut.write_data = 0xAEAEAEAE
     await RisingEdge(dut.clk)
     dut.write_enable.value = 0
-    theorical_regs[0] = 0
+    theorical_regs[address3] = 0
 
     await Timer(1, units="ns") # wait a ns to test async read
     dut.address1.value = 0

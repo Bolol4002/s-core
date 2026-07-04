@@ -1,20 +1,30 @@
-// regfile.sv
+/*
+* REGISTER FILE
+*
+* BRH 10/24
+*
+* Simple register file. RISC-V compliant.
+*/
+
+`timescale 1ns/1ps
 
 module regfile (
-    // basic signals
-    input logic clk,
-    input logic rst_n,
+
+    // Basic signals
+    input  logic        clk,
+    input  logic        rst_n,
 
     // Reads
-    input logic [4:0] address1,
-    input logic [4:0] address2,
+    input  logic [4:0]  address1,
+    input  logic [4:0]  address2,
     output logic [31:0] read_data1,
     output logic [31:0] read_data2,
 
     // Writes
-    input logic write_enable,
-    input logic [31:0] write_data,
-    input logic [4:0] address3
+    input  logic        write_enable,
+    input  logic [31:0] write_data,
+    input  logic [4:0]  address3
+
 );
 
 // 32bits register. 32 of them (addressed with 5 bits)
@@ -39,5 +49,5 @@ always_comb begin : readLogic
     read_data1 = registers[address1];
     read_data2 = registers[address2];
 end
-  
+    
 endmodule
