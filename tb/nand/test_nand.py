@@ -8,7 +8,7 @@ async def test_nand_gate(dut):
     test_vectors = [
         (0, 0, 1),
         (0, 1, 1),
-        (h0, 1),
+        (1, 0, 1),
         (1, 1, 0),
     ]
 
