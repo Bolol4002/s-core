@@ -1,6 +1,8 @@
 # s-core
 my nth attempt in building a cpu
 
+- Risc V - 32 bit, we are building the 32 bit so it has 32 register x0 to x31.
+
 ## Components used within this architecture.
 - A register fiel
 - An instruction memory
