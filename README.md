@@ -1,6 +1,22 @@
 # s-core
 my nth attempt in building a cpu
 
+Step	Module	You'll Learn
+1	ALU	Combinational logic, always_comb, enums, case statements
+2	Register File	Arrays, synchronous writes, asynchronous reads
+3	Program Counter	Sequential logic, reset
+4	PC + 4 Adder	Simple combinational datapath
+5	Instruction Memory	ROM, $readmemh
+6	Instruction Decoder	Bit slicing
+7	ALU Control	Decode logic
+8	Control Unit	Control signal generation
+9	CPU Top	Module integration
+10	Cocotb tests	Verification
+11	Add I-type	Immediate generation
+12	Pipeline	IF/ID, ID/EX, EX/MEM, MEM/WB
+
+---
+
 - Risc V - 32 bit, we are building the 32 bit so it has 32 register x0 to x31.
 
 ## Components used within this architecture.
