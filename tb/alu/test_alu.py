@@ -23,7 +23,7 @@ async def test_alu_random(dut):
 
         # ---------- Golden Model ----------
         if op == 0:          # ADD
-            expected = (a + b) & 0xFFFFFFFF
+            expected = (a + b) & 0xFFFFFFFF  # also called as masking when overflow occurs the and operation with all 1 will discard the 33rd of further bit formed
 
         elif op == 1:        # SUB
             expected = (a - b) & 0xFFFFFFFF
