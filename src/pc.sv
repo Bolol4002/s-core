@@ -2,14 +2,14 @@ module pc (
     input  logic        clk,
     input  logic        rst,
     input  logic [31:0] next_pc,
-    output logic [31:0] pc
+    output logic [31:0] pc_o
 );
 
     always_ff @(posedge clk) begin
         if (rst)
-            pc <= 32'd0;
+            pc_o <= 32'd0;
         else
-            pc <= next_pc;
+            pc_o <= next_pc;
     end
 
 endmodule
