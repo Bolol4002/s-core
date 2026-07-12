@@ -54,3 +54,7 @@ The following components are implemented and verified:
 - Register file module and testbench
 
 The testbenches use cocotb with Icarus Verilog simulation and validate basic functional behavior for each design.
+
+
+## Plan 
+| Step | Module | You'll Learn | | ---- | ------------------- | ---------------------------------------------------------- | | 1 | ALU | Combinational logic, always_comb, enums, case statements | | 2 | Register File | Arrays, synchronous writes, asynchronous reads | | 3 | Program Counter | Sequential logic, reset | | 4 | PC + 4 Adder | Simple combinational datapath | | 5 | Instruction Memory | ROM, $readmemh | | 6 | Instruction Decoder | Bit slicing | | 7 | ALU Control | Decode logic | | 8 | Control Unit | Control signal generation | | 9 | CPU Top | Module integration | | 10 | Cocotb tests | Verification | | 11 | Add I-type | Immediate generation | | 12 | Pipeline | IF/ID, ID/EX, EX/MEM, MEM/WB |
