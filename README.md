@@ -1,57 +1,56 @@
 # s-core
-my nth attempt in building a cpu
 
-Step	Module	You'll Learn
-1	ALU	Combinational logic, always_comb, enums, case statements
-2	Register File	Arrays, synchronous writes, asynchronous reads
-3	Program Counter	Sequential logic, reset
-4	PC + 4 Adder	Simple combinational datapath
-5	Instruction Memory	ROM, $readmemh
-6	Instruction Decoder	Bit slicing
-7	ALU Control	Decode logic
-8	Control Unit	Control signal generation
-9	CPU Top	Module integration
-10	Cocotb tests	Verification
-11	Add I-type	Immediate generation
-12	Pipeline	IF/ID, ID/EX, EX/MEM, MEM/WB
+A small digital design project written in SystemVerilog with cocotb-based verification testbenches.
 
----
+## Overview
 
-- Risc V - 32 bit, we are building the 32 bit so it has 32 register x0 to x31.
+This repository currently contains a set of basic digital logic modules and their testbenches:
 
-## Components used within this architecture.
-- A register fiel
-- An instruction memory
-- some data memory
-- a sign extender
-- a bsic alue
-- decoder/control unit 
+- ALU: a simple arithmetic and logic unit supporting add, subtract, AND, and OR operations
+- NAND gate: a basic two-input NAND implementation
+- Program counter (PC): a clocked register that stores the next program counter value
+- Register file: a simple 32-register memory block with write-enable support
 
-![architecture](img/architecture.jpg)
+## Project Structure
 
----
+- src/ - SystemVerilog source files
+  - alu.sv
+  - nand.sv
+  - pc.sv
+  - regfile.sv
+- tb/ - cocotb testbenches
+  - alu/
+  - nand/
+  - pc/
+  - regfile/
+- Makefile - cleanup target for generated simulation artifacts
 
-# Memory.sv file
-- We create a byte adressed memory file which can fetch data in one clock cycle ideally 
-- The difference is what each memory address refers to.
-    - Byte-addressed memory: each address points to 1 byte (8 bits).
-    - Word-addressed memory: each address points to 1 word (e.g., 32 bits or 64 bits, depending on the architecture).
+## Verification
 
-# Regfile.sv file
-- Classical regfile -> with read and write operation primarily made for R type instruction.
+Each module has a cocotb testbench under its corresponding directory in tb/.
 
-# alu.sv 
-- does arithmetic operation will be adding more and more types as the design evolves but for now very basic variant is given
-- an input called alu_control is implemented its purpose is that when the alu encounters a operand which is not supported the answer is defaulted to zero.
+### Running tests
 
-# signext.sv
-- sign extender
-- The signext module converts a RISC-V immediate field into a full 32-bit signed value.
-- Why is this needed?
-- For an instruction like lw:
-    - lw x5, 8(x1)
-- the offset (8) is stored inside the instruction as a 12-bit immediate.
-- The ALU, however, operates on 32-bit values, so we must:
-    - Extract the immediate bits from the instruction.
-    - Reconstruct them if they are scattered.
-    - Extend them to 32 bits while preserving the sign.
+Navigate to a testbench directory and run:
+
+```bash
+make
+```
+
+Example:
+
+```bash
+cd tb/pc
+make
+```
+
+## Current Status
+
+The following components are implemented and verified:
+
+- ALU module and testbench
+- NAND gate module and testbench
+- PC module and testbench
+- Register file module and testbench
+
+The testbenches use cocotb with Icarus Verilog simulation and validate basic functional behavior for each design.
