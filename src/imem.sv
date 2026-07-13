@@ -3,15 +3,15 @@ module imem (
     output logic [31:0] instruction
 );
 
-    // 256 x 32-bit instruction ROM
+    // 256 x 32-bit Instruction ROM
     logic [31:0] mem [0:255];
 
-    // Load program at simulation start
+    // Load program into ROM
     initial begin
         $readmemh("program.mem", mem);
     end
 
     // Asynchronous read
-    assign instruction = mem[addr[31:2]];
+    assign instruction = mem[addr[9:2]];
 
 endmodule
