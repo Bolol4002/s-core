@@ -5,6 +5,7 @@ TOPLEVEL_LANG ?= verilog
 COMPILE_ARGS += -g2012
 WAVES = 0
 
+VERILOG_SOURCES += $(PWD)/../../src/cpu_pkg.sv
 VERILOG_SOURCES += $(PWD)/../../src/alu_control.sv
 
 TOPLEVEL = alu_control
