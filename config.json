@@ -2,7 +2,8 @@
     "DESIGN_NAME": "cpu",
 
     "VERILOG_FILES": [
-        "dir::cpu.sv"
+        "dir::src/cpu_pkg.sv",
+        "dir::src/cpu.sv"
     ],
 
     "CLOCK_PORT": "clk",
