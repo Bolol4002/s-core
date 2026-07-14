@@ -1,0 +1,17 @@
+{
+    "DESIGN_NAME": "accumulator",
+
+    "VERILOG_FILES": [
+        "dir::accumulator.v"
+    ],
+
+    "CLOCK_PORT": "clk",
+
+    "CLOCK_PERIOD": 10,
+
+    "PL_MAX_DISPLACEMENT_X": 2000,
+    "PL_MAX_DISPLACEMENT_Y": 2000,
+    "IO_PIN_ORDER_CFG": "dir::pin_order.cfg",
+    "FP_CORE_UTIL": 20,
+    "RUN_CTS": false
+}
