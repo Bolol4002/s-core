@@ -2,7 +2,9 @@ import cpu_pkg::*;
 
 module cpu (
     input logic clk,
-    input logic rst
+    input logic rst,
+    output logic [31:0] alu_result,
+    output logic zero
 );
 
     logic [31:0] pc;
@@ -20,8 +22,6 @@ module cpu (
     logic [31:0] rs2_data;
 
     alu_op_t alu_op;
-    logic [31:0] alu_result;
-    logic zero;
 
     logic reg_write;
     logic alu_src;
