@@ -78,7 +78,7 @@ The current CPU top-level module wires together the PC, instruction memory, deco
 | 11 | Branches and Jumps | - | Control-flow support |
 | 12 | Pipeline | - | IF/ID, ID/EX, EX/MEM, MEM/WB pipeline stages |
 
-
+```
            +----------------+
            |      PC        |
            +-------+--------+
@@ -116,3 +116,5 @@ The current CPU top-level module wires together the PC, instruction memory, deco
                    |
                    |
                    +---------> Register File writeback
+
+```
