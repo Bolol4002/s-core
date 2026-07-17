@@ -12,9 +12,7 @@ async def test_control_unit(dut):
         # opcode, reg_write, alu_src, mem_read, mem_write,
         # mem_to_reg, branch, jump
         (R_TYPE, 1, 0, 0, 0, 0, 0, 0),
-
-        # Unsupported opcode (ADDI)
-        (0x13,   0, 0, 0, 0, 0, 0, 0),
+        (0x13,   1, 1, 0, 0, 0, 0, 0),
     ]
 
     for (

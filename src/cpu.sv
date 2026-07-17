@@ -20,6 +20,8 @@ module cpu (
 
     logic [31:0] rs1_data;
     logic [31:0] rs2_data;
+    logic [31:0] imm;
+    logic [31:0] operand_b;
 
     alu_op_t alu_op;
 
@@ -87,9 +89,16 @@ module cpu (
         .rs2_data(rs2_data)
     );
 
+    imm_gen u_imm_gen (
+        .instruction(instruction),
+        .imm(imm)
+    );
+
+    assign operand_b = alu_src ? imm : rs2_data;
+
     alu u_alu (
         .operand_a(rs1_data),
-        .operand_b(rs2_data),
+        .operand_b(operand_b),
         .alu_op(alu_op),
         .result(alu_result),
         .zero(zero)

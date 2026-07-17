@@ -1,6 +1,7 @@
 package cpu_pkg;
 
     localparam logic [6:0] OPCODE_RTYPE = 7'b0110011;
+    localparam logic [6:0] OPCODE_ITYPE = 7'b0010011;
 
     typedef enum logic [2:0] {
         ALU_ADD,

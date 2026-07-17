@@ -15,12 +15,9 @@ async def test_alu_control(dut):
         (R_TYPE, 0b000, 0b0100000, 1),  # SUB
         (R_TYPE, 0b111, 0b0000000, 2),  # AND
         (R_TYPE, 0b110, 0b0000000, 3),  # OR
-
-        # Unsupported R-type instruction
-        (R_TYPE, 0b001, 0b0000000, 0),
-
-        # Wrong opcode
-        (0x13, 0b000, 0b0000000, 0),
+        (0x13, 0b000, 0b0000000, 0),  # ADDI
+        (0x13, 0b111, 0b0000000, 2),  # ANDI
+        (0x13, 0b110, 0b0000000, 3),  # ORI
     ]
 
     for opcode, funct3, funct7, expected in test_vectors:

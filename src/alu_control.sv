@@ -23,6 +23,16 @@ module alu_control (
                 default: alu_op = ALU_ADD;
 
             endcase
+        end else if (opcode == OPCODE_ITYPE) begin
+            unique case (funct3)
+
+                3'b000: alu_op = ALU_ADD; // ADDI
+                3'b111: alu_op = ALU_AND; // ANDI
+                3'b110: alu_op = ALU_OR;  // ORI
+
+                default: alu_op = ALU_ADD;
+
+            endcase
         end
     end
 

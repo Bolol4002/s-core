@@ -28,6 +28,11 @@ module control_unit (
                 reg_write = 1'b1;
             end
 
+            OPCODE_ITYPE: begin
+                reg_write = 1'b1;
+                alu_src   = 1'b1;
+            end
+
             default: ;
 
         endcase

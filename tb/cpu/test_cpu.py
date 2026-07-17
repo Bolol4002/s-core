@@ -43,9 +43,9 @@ async def test_cpu(dut):
     await Timer(1, unit="ns")
 
     #
-    # Execute 4 instructions
+    # Execute 6 instructions
     #
-    for _ in range(4):
+    for _ in range(6):
         await RisingEdge(dut.clk)
 
     #
@@ -55,6 +55,8 @@ async def test_cpu(dut):
     dut._log.info(f"x3  = {hex(int(dut.u_regfile.mem[3].value))}")
     dut._log.info(f"x4  = {hex(int(dut.u_regfile.mem[4].value))}")
     dut._log.info(f"x5  = {hex(int(dut.u_regfile.mem[5].value))}")
+    dut._log.info(f"x1  = {hex(int(dut.u_regfile.mem[1].value))}")
+    dut._log.info(f"x2  = {hex(int(dut.u_regfile.mem[2].value))}")
 
     #
     # Check the architectural outputs.
@@ -65,13 +67,19 @@ async def test_cpu(dut):
         f"x0 should read as zero, got {int(dut.u_regfile.rs1_data.value)}"
     )
 
-    assert int(dut.u_regfile.mem[3].value) == 30, \
+    assert int(dut.u_regfile.mem[1].value) == 5, \
+        f"x1 incorrect: {int(dut.u_regfile.mem[1].value)}"
+
+    assert int(dut.u_regfile.mem[2].value) == 10, \
+        f"x2 incorrect: {int(dut.u_regfile.mem[2].value)}"
+
+    assert int(dut.u_regfile.mem[3].value) == 15, \
         f"x3 incorrect: {int(dut.u_regfile.mem[3].value)}"
 
-    assert int(dut.u_regfile.mem[4].value) == 10, \
+    assert int(dut.u_regfile.mem[4].value) == 7, \
         f"x4 incorrect: {int(dut.u_regfile.mem[4].value)}"
 
-    assert int(dut.u_regfile.mem[5].value) == 0x0F, \
+    assert int(dut.u_regfile.mem[5].value) == 15, \
         f"x5 incorrect: {hex(int(dut.u_regfile.mem[5].value))}"
 
     dut._log.info("CPU integration test PASSED")

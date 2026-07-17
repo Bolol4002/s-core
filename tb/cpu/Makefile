@@ -14,6 +14,7 @@ VERILOG_SOURCES += $(PWD)/../../src/control_unit.sv
 VERILOG_SOURCES += $(PWD)/../../src/alu_control.sv
 VERILOG_SOURCES += $(PWD)/../../src/regfile.sv
 VERILOG_SOURCES += $(PWD)/../../src/alu.sv
+VERILOG_SOURCES += $(PWD)/../../src/imm_gen.sv
 VERILOG_SOURCES += $(PWD)/../../src/cpu.sv
 
 TOPLEVEL = cpu
